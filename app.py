@@ -1,13 +1,14 @@
 from flask import Flask, request
 from flask_socketio import SocketIO, emit, join_room
 from flask_cors import CORS
-from data import players
 from functions import checkIsThereShip, getGameByUser, getNumByParam, pPrint
 
 app = Flask(__name__)
 app.debug = True
-cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-socketio = SocketIO(app, cors_allowed_origins=['http://localhost:3000'])
+cors = CORS(app, resources={
+            r"/*": {"origins": ["https://blackpawsstudio.github.io", "http://localhost: 3000"]}})
+socketio = SocketIO(app, cors_allowed_origins=[
+                    'https://blackpawsstudio.github.io', "http://localhost: 3000"])
 
 players = []
 games = []
