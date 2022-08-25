@@ -6,8 +6,9 @@ from functions import checkIsThereShip, getGameByUser, getNumByParam, pPrint
 app = Flask(__name__)
 app.debug = True
 cors = CORS(app, resources={
-            r"/*": {"origins": "https://blackpawsstudio.github.io"}})
-socketio = SocketIO(app, cors_allowed_origins='https://blackpawsstudio.github.io')
+            r"/*": {"origins": "http://localhost:3000"}})
+socketio = SocketIO(app, cors_allowed_origins=[
+                    'http://localhost:3000', 'https://blackpawsstudio.github.io'])
 
 players = []
 games = []
@@ -122,4 +123,4 @@ def handleCheckCell(id, gameId):
         print(game['fields'][0 if playerNum == 1 else 1]['id'], 'loses!')
         
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0')
+    socketio.run(app, port=3001)
