@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_socketio import SocketIO, emit, join_room
 from flask_cors import CORS
 from functions import checkIsThereShip, getGameByUser, getNumByParam, pPrint
+import os
 
 app = Flask(__name__)
 app.debug = True
@@ -121,6 +122,8 @@ def handleCheckCell(id, gameId):
     checkedCell['state'] = 'hit'
     if checkIsThereShip(enemyField) == False:
         print(game['fields'][0 if playerNum == 1 else 1]['id'], 'loses!')
-        
+
+
 if __name__ == '__main__':
-    socketio.run(app, port=3001)
+    port = os.environ.get('PORT', 3001)
+    socketio.run(app, port=int(port))
