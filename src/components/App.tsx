@@ -9,9 +9,10 @@ export const socket = io('http://localhost:3001');
 
 function App() {
   useEffect(() => {
-    if (window.location.pathname.length > 1) {
-      const inviteLink = window.location.pathname;
-      const newLink = inviteLink.substring(inviteLink.indexOf('/') + 1);
+    if (window.location.search.length) {
+      const inviteLink = window.location.search;
+      const newLink = inviteLink.substring(inviteLink.indexOf('?invite=') + 8);
+      console.log(inviteLink, newLink);
       socket.emit('room-create', newLink);
     }
   }, []);

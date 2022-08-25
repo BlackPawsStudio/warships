@@ -36,7 +36,7 @@ const InviteSection = ({ text }: { text?: boolean }) => {
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(
-      `${window.location.hostname}/${window.location.pathname}/` + yourId
+      `${window.location.hostname}${window.location.pathname}?invite=` + yourId
     );
     setIsCopied(true);
     setTimeout(() => {
@@ -47,10 +47,10 @@ const InviteSection = ({ text }: { text?: boolean }) => {
   const confirm = () => {
     if (!text) {
       if (inviteLink.includes(window.location.hostname)) {
-        const newLink = inviteLink.substring(inviteLink.indexOf('/') + 9);
+        const newLink = inviteLink.substring(inviteLink.indexOf('?invite=') + 8);
         socket.emit('room-create', newLink);
       } else {
-        alert('Wrong invite code!');
+        alert(`Wrong invite code!`);
         setInviteLink('');
       }
     }

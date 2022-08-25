@@ -22,7 +22,7 @@ const GameArea = () => {
     socket.on('roommate-disconnected', () => {
       alert('Roommate disconnected!');
       dispatch(setStep('mainTitle'));
-      window.location.pathname = '';
+      window.location.reload();
     });
   }, [dispatch, yourId]);
 
