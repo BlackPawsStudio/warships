@@ -125,5 +125,4 @@ def handleCheckCell(id, gameId):
 
 
 if __name__ == '__main__':
-    port = os.environ.get('PORT', 3001)
-    socketio.run(app, port=int(port))
+    socketio.run(app)
