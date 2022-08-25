@@ -1,0 +1,49 @@
+.container {
+  width: 50vh;
+  height: 50vh;
+  border: 1px solid #000;
+}
+
+.game__field {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.settings__field {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.cell {
+  width: auto;
+  height: auto;
+  border: 1px solid #000;
+  font-size: 5px;
+  transition: all .2s;
+}
+
+.cell_enemy:hover {
+  filter: brightness(1.5);
+  cursor: pointer;
+}
+
+.field__title {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5vh;
+}
+
+@media (max-width: 115vh) {
+  .container {
+    width: 80vw;
+    max-width: 35vh;
+    height: 80vw;
+    max-height: 35vh;
+  }
+}

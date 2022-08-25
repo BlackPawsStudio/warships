@@ -1,0 +1,39 @@
+.ships__container {
+  width: max-content;
+  border: 1px solid #000;
+  row-gap: 3px;
+  column-gap: 3px;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  position: absolute;
+  top: 20%;
+  transition: all .5s;
+  padding: 10px;
+  background-color: #555;
+}
+
+.trigger {
+  position: absolute;  
+  top: -2px;
+  left: 100%;
+  padding: 5px;
+  border: 1px solid #000;
+  background-color: #555;
+  cursor: pointer;
+}
+
+.ship {
+  margin: 1px;
+  cursor: pointer;
+  height: auto;
+  min-height: 5vh;
+}
+
+@media (max-width: 115vh) {
+  .trigger {
+    transform: rotate(-90deg);
+    width: 150px;
+    left: 70%;
+    top: 50%;
+  }
+}
