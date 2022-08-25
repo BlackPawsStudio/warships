@@ -122,4 +122,4 @@ def handleCheckCell(id, gameId):
         print(game['fields'][0 if playerNum == 1 else 1]['id'], 'loses!')
         
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=3001)
+    socketio.run(app)
