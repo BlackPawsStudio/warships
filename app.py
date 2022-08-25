@@ -6,9 +6,8 @@ from functions import checkIsThereShip, getGameByUser, getNumByParam, pPrint
 app = Flask(__name__)
 app.debug = True
 cors = CORS(app, resources={
-            r"/*": {"origins": ["https://blackpawsstudio.github.io", "http://localhost: 3000"]}})
-socketio = SocketIO(app, cors_allowed_origins=[
-                    'https://blackpawsstudio.github.io', "http://localhost: 3000"])
+            r"/*": {"origins": "https://blackpawsstudio.github.io"}})
+socketio = SocketIO(app, cors_allowed_origins='https://blackpawsstudio.github.io')
 
 players = []
 games = []
