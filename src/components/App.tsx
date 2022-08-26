@@ -5,7 +5,7 @@ import './style.css';
 import { io } from 'socket.io-client';
 import GameArea from './game/GameArea';
 
-export const socket = io('http://localhost:3001');
+export const socket = io('https://warships-api.herokuapp.com');
 
 function App() {
   useEffect(() => {

@@ -20,7 +20,7 @@ const InviteSection = ({ text }: { text?: boolean }) => {
     socket.on('connect', () => {
       socket.emit('get-id');
     });
-    socket.on('git-id-res', (id) => {
+    socket.on('get-id-res', (id) => {
       dispatch(setYourId(id));
     });
     socket.on('room-create-response', (res) => {

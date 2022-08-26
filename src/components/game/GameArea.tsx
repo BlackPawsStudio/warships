@@ -6,7 +6,7 @@ import GameSettings from './field/Settings';
 import InviteScreen from './invite/InviteScreen';
 import ShipsField from './ships/ShipsField';
 import './style.css';
-import { setStep } from '../../store/commonStateSlice';
+import { setIsMyTurn, setStep } from '../../store/commonStateSlice';
 
 const GameArea = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +23,11 @@ const GameArea = () => {
       alert('Roommate disconnected!');
       dispatch(setStep('mainTitle'));
       window.location.reload();
+    });
+    socket.on('game-end', (loser) => {
+      alert(yourId === loser ? 'You lose!' : 'You win!');
+      dispatch(setIsMyTurn(false));
+      dispatch(setStep('mainTitle'));
     });
   }, [dispatch, yourId]);
 
